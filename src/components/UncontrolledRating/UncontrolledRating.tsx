@@ -1,14 +1,30 @@
 import React, {useState} from 'react';
 import s from './../../App.module.css'
-export const UnControlledRating = () => {
-    const [value,setValue] = useState(0)
+import {RatingValueType} from "../Rating/Rating";
+
+type RatingPropsType = {
+    defaultValue?:RatingValueType;
+    onChange:(value:RatingValueType)=>void
+}
+export const UnControlledRating = (props:RatingPropsType) => {
+    const [value,setValue] = useState<RatingValueType>(props.defaultValue?props.defaultValue : 0)
     return (
         <div>
-            <Star selected={value>0} setValue={()=>setValue(1)}/>
-            <Star selected={value>1} setValue={()=>setValue(2)}/>
-            <Star selected={value>2} setValue={()=>setValue(3)}/>
-            <Star selected={value>3} setValue={()=>setValue(4)}/>
-            <Star selected={value>4} setValue={()=>setValue(5)}/>
+            <Star selected={value>0} setValue={()=> {
+                setValue(1);props.onChange(0)
+            }}/>
+            <Star selected={value>1} setValue={()=> {
+                setValue(2);props.onChange(1)
+            }}/>
+            <Star selected={value>2} setValue={()=> {
+                setValue(3);props.onChange(2)
+            }}/>
+            <Star selected={value>3} setValue={()=> {
+                setValue(4);props.onChange(3)
+            }}/>
+            <Star selected={value>4} setValue={()=> {
+                setValue(5);props.onChange(4)
+            }}/>
         </div>
     );
 };
