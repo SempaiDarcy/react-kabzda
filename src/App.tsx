@@ -12,7 +12,7 @@ function App() {
     return (
         <div className={s.App}>
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            <UnControlledRating/>
+            <UnControlledRating onChange={setRatingValue}/>
             <Accordion titleValue={'Menu'} collapsed={accordionCollapsed} onChange={()=>setAccordionCollapsed(!accordionCollapsed)}/>
             {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
             <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}

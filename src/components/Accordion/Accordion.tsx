@@ -1,10 +1,16 @@
 import React from 'react';
 
 
-type AccordionPropsType = {
+type ItemType = {
+    title:string,
+    value:number
+}
+export type AccordionPropsType = {
     titleValue:string
     collapsed:boolean
     onChange:()=>void
+    items:ItemType[]
+    onClick:()=>void
 }
 
 const Accordion = (props:AccordionPropsType) => {
